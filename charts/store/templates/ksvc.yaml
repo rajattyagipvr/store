@@ -22,6 +22,19 @@ spec:
             - name: {{ $pkey }}
               value: {{ quote $pval }}
 {{- end }}
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+            - name: JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: secret
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://store-mysql:3306/store?                                                                                                                     useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+            - name: SPRING_SLEUTH_PROPAGATION_KEYS
+              value: 'x-request-id,x-ot-span-context'
+            - name: JAVA_OPTS
+              value: ' -Xmx256m -Xms256m'
             livenessProbe:
               httpGet:
                 path: {{ .Values.probePath }}
@@ -35,7 +48,7 @@ spec:
                 path: {{ .Values.probePath }}
               periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
               successThreshold: {{ .Values.readinessProbe.successThreshold }}
-              timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+              timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}  
             resources:
 {{ toYaml .Values.resources | indent 14 }}
 {{- end }}
