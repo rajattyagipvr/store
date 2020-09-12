@@ -15,7 +15,7 @@ spec:
         - uri:
             prefix: /services/invoice/
       rewrite:
-        authority: invoice.jhipster.cluster12.tagscloud.org
+        authority: invoice.jx-staging.cluster12.tagscloud.org
         uri: /
       route:
         - destination:
@@ -26,7 +26,7 @@ spec:
         - uri:
             prefix: /services/notification/
       rewrite:
-        authority: notification.jhipster.cluster12.tagscloud.org
+        authority: notification.jx-staging.cluster12.tagscloud.org
         uri: /
       route:
         - destination:
@@ -37,7 +37,7 @@ spec:
         - uri:
             prefix: /services/product/
       rewrite:
-        authority: product.jhipster.cluster12.tagscloud.org
+        authority: product.jx-staging.cluster12.tagscloud.org
         uri: /
       route:
         - destination:
