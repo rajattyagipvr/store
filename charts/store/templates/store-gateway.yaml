@@ -20,8 +20,8 @@ spec:
       route:
         - destination:
             host: istio-ingressgateway.istio-system.svc.cluster.local
-              port:
-                number: 80
+            port:
+              number: 80
     - match:
         - uri:
             prefix: /services/notification/
@@ -31,8 +31,8 @@ spec:
       route:
         - destination:
             host: istio-ingressgateway.istio-system.svc.cluster.local
-              port:
-                number: 80
+            port:
+              number: 80
     - match:
         - uri:
             prefix: /services/product/
@@ -42,13 +42,13 @@ spec:
       route:
         - destination:
             host: istio-ingressgateway.istio-system.svc.cluster.local
-              port:
-                number: 80
+            port:
+              number: 80
     - match:
         - uri:
             prefix: /
       route:
         - destination:
             host: istio-ingressgateway.istio-system.svc.cluster.local
-              port:
-                number: 80
+            port:
+              number: 80
